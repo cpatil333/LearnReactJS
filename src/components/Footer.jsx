@@ -1,0 +1,7 @@
+import React from "react";
+
+const Footer = (props) => {
+  return <div className="bg-[lightgreen]">{props.data}</div>;
+};
+
+export default Footer;

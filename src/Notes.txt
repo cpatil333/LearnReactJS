@@ -1,0 +1,268 @@
+1...
+import { useState } from "react";
+import "./App.css";
+import Questions from "./quize/components/Questions";
+import Timer from "./quize/components/Timer";
+import Results from "./quize/components/Results";
+
+function App() {
+  const [isOver, setIsOver] = useState(false);
+  const [score, setScore] = useState(0);
+  return (
+    <>
+      {isOver ? (
+        <Results score={score} />
+      ) : (
+        <div>
+          <Timer setIsOver={setIsOver} />
+          <Questions setIsOver={setIsOver} setScore={setScore} />
+        </div>
+      )}
+    </>
+  );
+}
+
+export default App;
+
+
+2 ... 
+
+import "./App.css";
+//import Conditional from "./components/Conditional";
+import ComponentA from "./conditional/ComponentA";
+import ComponentB from "./conditional/ComponentB";
+import ComponentC from "./conditional/ComponentC";
+
+function App() {
+  let option = "r";
+  let content = "";
+
+  if (option === "a") {
+    content = <ComponentA />;
+  } else if (option === "b") {
+    content = <ComponentB />;
+  } else if (option === "c") {
+    content = <ComponentC />;
+  } else {
+    content = <h1>Other Components</h1>;
+  }
+  return <>{content}</>;
+}
+
+export default App;
+
+3....
+import "./App.css";
+
+function App() {
+  const color = "ddd";
+
+  return (
+    <>
+      {
+        <h1 className={`${color === "red" ? "bg-red-500" : "bg-blue-500"}`}>
+          Our color choice
+        </h1>
+      }
+    </>
+  );
+}
+
+export default App;
+
+4... 
+import { useState } from "react";
+import "./App.css";
+
+function App() {
+  const [isToggle, setIsToggle] = useState(false);
+
+  return (
+    <>
+      {isToggle ? <h1>Toggle true</h1> : <h1>Toggle false</h1>}
+      <button
+        className="bg-red-500 text-black"
+        onClick={() => {
+          setIsToggle(!isToggle);
+        }}
+      >
+        Toggle
+      </button>
+    </>
+  );
+}
+
+export default App;
+
+5...
+import "./App.css";
+import ComponentA from "./conditional/ComponentA";
+import ComponentB from "./conditional/ComponentB";
+import ComponentC from "./conditional/ComponentC";
+
+function App() {
+  let option = "a";
+  const Component = option === "a" ? <ComponentA /> : <ComponentB />;
+  return (
+    <>
+      <div>{Component}</div>
+    </>
+  );
+}
+
+export default App;
+
+6...
+
+import "./App.css";
+import ComponentA from "./conditional/ComponentA";
+import ComponentB from "./conditional/ComponentB";
+import ComponentC from "./conditional/ComponentC";
+
+function App() {
+  let option = "b";
+  switch (option) {
+    case "a":
+      return <ComponentA />;
+    case "b":
+      return <ComponentB />;
+    case "c":
+      return <ComponentC />;
+    default:
+      return <h1>No Components</h1>;
+  }
+}
+
+export default App;
+7.. 
+import "./App.css";
+import Popup from "./miniproject/popup";
+import { useState } from "react";
+
+function App() {
+  const [popup, setPopup] = useState(false);
+  const [editPopup, setEditPopup] = useState(false);
+  return (
+    <>
+      <button className="bg-black" onClick={() => setPopup(true)}>
+        Delete
+      </button>
+      <Popup
+        popup={popup}
+        setPopup={setPopup}
+        title={"Delete"}
+        description={"Are you sure you want to delete this?"}
+      />
+      <button className="bg-black" onClick={() => setEditPopup(true)}>
+        Edit
+      </button>
+      <Popup
+        popup={editPopup}
+        setPopup={setEditPopup}
+        title={"Edit"}
+        description={"Are you sure you want to edit this?"}
+      />
+    </>
+  );
+}
+
+export default App;
+
+8..
+import "./App.css";
+import Navbar from "./my-project2/Navbar";
+
+function App() {
+  return (
+    <>
+      <Navbar />
+    </>
+  );
+}
+
+export default App;
+
+9..
+import "./App.css";
+import Home from "./E-CommerceProject/Home";
+import Products from "./E-CommerceProject/Products";
+import SingleProduct from "./E-CommerceProject/SingleProduct";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Layout from "./E-CommerceProject/Layout";
+
+function App() {
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Layout />,
+      children: [
+        { path: "/", element: <Home /> },
+        { path: "/products", element: <Products /> },
+        { path: "/products/:id", element: <SingleProduct /> },
+      ],
+    },
+  ]);
+  return (
+    <>
+      <RouterProvider router={router} />
+    </>
+  );
+}
+
+export default App;
+
+
+10...
+import "./App.css";
+import Wrapper from "./NewsProject/Wrapper";
+import Navbar from "./NewsProject/Navbar";
+import News from "./NewsProject/page/News";
+import Category from "./NewsProject/Category";
+import Footer from "./NewsProject/Footer";
+
+function App() {
+  return (
+    <div>
+      <Navbar />
+      <Category />
+      <News />
+      <Footer />
+    </div>
+  );
+}
+
+export default App;
+
+11...
+
+import { useSelector, useDispatch } from "react-redux";
+import "./App.css";
+import { addToProduct } from "./Redux/action/actionProduct";
+
+function App() {
+  const dispatch = useDispatch();
+  const state = useSelector((state) => {
+    return state;
+  });
+  console.log(state);
+
+  const handleToAddProduct = () => {
+    dispatch(
+      addToProduct({
+        id: "1",
+        name: "Manas kumar lal",
+        age: 21,
+      }),
+    );
+  };
+  return (
+    <div>
+      <h1>Hellow</h1>
+      <button onClick={() => dispatch(handleToAddProduct())} className="btn">
+        Click
+      </button>
+    </div>
+  );
+}
+
+export default App;

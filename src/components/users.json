@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "title": "Manas Kumar Lal",
+    "role": "Full Stack Developer",
+    "imageUrl": "https://png.pngtree.com/png-clipart/20250318/original/pngtree-d-illustration-of-a-female-character-taking-selfie-with-smartphone-in-png-image_20678872.png",
+    "likeCount": "20.3k"
+  },
+  {
+    "id": 2,
+    "title": "Muskan",
+    "role": "Web Developer",
+    "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRigQXAI1jkIf50RwlJ_dHG7qEfK2Ma0y4qdw&s",
+    "likeCount": "60.0k"
+  },
+  {
+    "id": 3,
+    "title": "Hansh Khatri",
+    "role": "Project Lead",
+    "imageUrl": "https://i.pinimg.com/736x/50/d4/29/50d429ea5c9afe0ef9cb3c96f784bea4.jpg",
+    "likeCount": "210.3k"
+  },
+  {
+    "id": 4,
+    "title": "Harshit Gandhi",
+    "role": "Project Manager",
+    "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDgMUQyhZRf4q9aTY-9pC6tO8-lZk8Xpzuhw&s",
+    "likeCount": "40.5k"
+  }
+]
