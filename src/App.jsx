@@ -1,26 +1,24 @@
 import { useDispatch, useSelector } from "react-redux";
 import "./App.css";
-import { useEffect } from "react";
-import { fetchWeather } from "./WeatherDashboardReduxt/actions/actionWeather";
-import Search from "./WeatherDashboardReduxt/components/Search";
-import CurrentWeather from "./WeatherDashboardReduxt/components/CurrentWeather";
-import ForecastDetails from "./WeatherDashboardReduxt/components/ForecastDetails";
+import Counter from "./ReduxToolkit/components/Counter";
+import { changeName } from "./ReduxToolkit/features/counter/counterSlice";
+import Users from "./ReduxToolkit/components/Users";
 
 function App() {
-  const city = useSelector((state) => state.weatherReducer.city);
   const dispatch = useDispatch();
+  const state = useSelector((state) => state.Counter);
+  console.log(state);
 
-  useEffect(() => {
-    dispatch(fetchWeather(city));
-  }, []);
   return (
-    <div className="p-10 flex flex-col items-center gap-10">
-      <div className="sticky top-0 p-10 z-10 bg-base-100 w-full flex flex-col items-center">
-        <h1 className="text-3xl mb-6">Weather Dashboard</h1>
-        <Search />
-      </div>
-      <CurrentWeather />
-      <ForecastDetails />
+    <div>
+      <Counter />
+      <input
+        type="text"
+        placeholder="Enter name..."
+        className="border mt-5"
+        onChange={(e) => dispatch(changeName(e.target.value))}
+      />
+      <Users />
     </div>
   );
 }

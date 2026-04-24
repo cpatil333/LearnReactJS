@@ -4,7 +4,7 @@ import "./index.css";
 import App from "./App.jsx";
 //import { NewsContextProvider } from "./NewsProject/context/NewsContext.jsx";
 import { Provider } from "react-redux";
-import store from "./WeatherDashboardReduxt/store.js";
+import store from "./ReduxToolkit/store.js";
 
 createRoot(document.getElementById("root")).render(
   // <NewsContextProvider>
