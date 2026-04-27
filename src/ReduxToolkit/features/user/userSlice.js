@@ -6,6 +6,7 @@ const initialState = {
     loading: false,
     error: null,
 }
+
 //feching data
 const fetchUsers = createAsyncThunk(
     'user/fetchUsers',
@@ -26,7 +27,6 @@ const userSlice = createSlice({
     name: "user",
     initialState,
     reducers: {
-
     },
     extraReducers: (addBuilder) => {
         addBuilder.addCase(fetchUsers.pending, (state, action) => {

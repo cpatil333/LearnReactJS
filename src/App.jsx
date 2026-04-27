@@ -1,24 +1,28 @@
-import { useDispatch, useSelector } from "react-redux";
 import "./App.css";
-import Counter from "./ReduxToolkit/components/Counter";
-import { changeName } from "./ReduxToolkit/features/counter/counterSlice";
-import Users from "./ReduxToolkit/components/Users";
+import Employees from "./EmployeeSystem/components/Employees/Employees";
+import Footer from "./EmployeeSystem/components/footer/Footer";
+import Navbar from "./EmployeeSystem/components/navbar/Navbar";
+import EmployeePopup from "./EmployeeSystem/components/EmployeePopup/EmployeePopup";
+import DeletePopup from "./EmployeeSystem/components/deletePopup/deletePopup";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { getEmployees } from "./EmployeeSystem/store/features/employee/employee.thunk";
 
 function App() {
   const dispatch = useDispatch();
-  const state = useSelector((state) => state.Counter);
-  console.log(state);
+  useEffect(() => {
+    dispatch(getEmployees());
+  }, []);
 
   return (
-    <div>
-      <Counter />
-      <input
-        type="text"
-        placeholder="Enter name..."
-        className="border mt-5"
-        onChange={(e) => dispatch(changeName(e.target.value))}
-      />
-      <Users />
+    <div className="min-h-screen w-full flex flex-col">
+      <EmployeePopup />
+      <DeletePopup />
+      <Navbar />
+      <div className="flex-1 py-10">
+        <Employees />
+      </div>
+      <Footer />
     </div>
   );
 }

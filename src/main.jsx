@@ -4,12 +4,10 @@ import "./index.css";
 import App from "./App.jsx";
 //import { NewsContextProvider } from "./NewsProject/context/NewsContext.jsx";
 import { Provider } from "react-redux";
-import store from "./ReduxToolkit/store.js";
+//import store from "./ReduxToolkit/store/store.js";
+import store from "./EmployeeSystem/store/store.js";
 
 createRoot(document.getElementById("root")).render(
-  // <NewsContextProvider>
-  //   <App />
-  // </NewsContextProvider>,
   <Provider store={store}>
     <App />
   </Provider>,
